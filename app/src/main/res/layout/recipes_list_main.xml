@@ -8,11 +8,14 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <!-- TabLayout будет красивее чем PagerTabStrip. Попробовывать заменить на TabLayout
+        https://guides.codepath.com/android/google-play-style-tabs-using-tablayout
+
+        в статье не правильно сделали функцию getPageTitle. Название табов нужно из ресурсов брать. Для этого в конструктор SampleFragmentPagerAdapter нужно передавать context
+        -->
         <android.support.v4.view.PagerTabStrip
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

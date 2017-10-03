@@ -8,10 +8,10 @@ import android.graphics.drawable.Drawable;
 
 public class Recipe {
 
-    RecipeType type;
-    String name;
-    String ingredients;
-    int picture;
+    RecipeType type; // уровень доступа private
+    String name; // уровень доступа private
+    String ingredients; // уровень доступа private
+    int picture; // уровень доступа private
 
     public Recipe( RecipeType type, String name, String ingredients, int picture) {
         this.type = type;
