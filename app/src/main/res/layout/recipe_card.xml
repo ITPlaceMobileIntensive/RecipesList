@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_light">
 
+        <!-- Зачем такой бользой отступ слево? -->
         <TextView
             android:id="@+id/name"
             android:layout_marginLeft="@dimen/bottomMarginLeft"
@@ -24,6 +25,7 @@
             tools:text="Название"
             />
 
+        <!-- При большом тексте зализает на картинку. Текст можно сделать высотой в несколько строк -->
         <TextView
             android:id="@+id/ingredients"
             android:layout_marginLeft="@dimen/bottomMarginLeft"
@@ -35,7 +37,7 @@
             android:fontFamily="sans-serif"
             android:textStyle="normal"
             android:lineSpacingExtra="4sp"
-            tools:text="Ингредиенты:"
+            tools:text="Ингредиенты: ваыавыавыау344234234234234234234234"
             android:layout_below="@+id/name"
             />
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHolder> {
 
-    List<Recipe> items;
+    List<Recipe> items;  // уровень доступа private
 
     @Override
     public RecipesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -69,7 +69,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
 
         public void bindData(final Recipe entity) {
             name.setText(entity.getName());
-            ingredients.setText("Ингридиенты: " + entity.getIngredients());
+            ingredients.setText("Ингридиенты: " + entity.getIngredients()); //Ингридиенты: " строки из ресурсов нужно брать
             pic.setImageResource(entity.getPicture());
         }
     }

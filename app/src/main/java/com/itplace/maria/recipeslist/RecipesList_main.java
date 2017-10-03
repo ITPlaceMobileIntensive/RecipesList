@@ -7,20 +7,22 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-
+// Не правильно в названии классов использовать подчеркивание и с маленькой буквы.
+// Можно написать MainActivity/ RecipesListActivity
+// Вместо FragmentActivity  наследоваться от AppCompatActivity
 public class RecipesList_main extends FragmentActivity {
 
-    static final int PAGE_COUNT = 2;
+    static final int PAGE_COUNT = 2; // уровенить доступа private
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipes_list_main);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);  // на 26 sdk  (ViewPager) можно не писать
         PagerAdapter pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {  // studio подчеркивает, что метод устарел и нужно использовать addOnPageChangeListener
 
             @Override
             public void onPageSelected(int position) {
@@ -43,6 +45,7 @@ public class RecipesList_main extends FragmentActivity {
         });
     }
 
+    // MyFragmentPagerAdapter нужно в отдельный класс выносить. "My" в названии нигде не нужно использовать. Не понятно, чем "My" если в команда 2 и более человек
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         public MyFragmentPagerAdapter(FragmentManager fm) {
@@ -53,11 +56,11 @@ public class RecipesList_main extends FragmentActivity {
         public Fragment getItem(int position) {
             Fragment fragment = null;
             switch (position) {
-                case 0:
+                case 0:  // создать константы
                     fragment = Breakfasts.newInstance(position);
                     break;
 
-                case 1:
+                case 1:// создать константы
                     fragment = Dinners.newInstance(position);
                     break;
             }
@@ -73,11 +76,11 @@ public class RecipesList_main extends FragmentActivity {
         public CharSequence getPageTitle(int position) {
             String s = "";
             switch (position) {
-                case 0:
+                case 0: // создать константы
                     s = getString(R.string.Breakfasts);
                     break;
 
-                case 1:
+                case 1: // создать константы
                     s = getString(R.string.Dinners);
                     break;
             }
