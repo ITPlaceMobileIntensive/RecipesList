@@ -6,6 +6,7 @@ package com.itplace.maria.recipeslist;
 
 public class Recipe {
 
+    // нужно добавить поле id, которое будет унивальным идентификатором каждой сущности. Тип поля сделать String, потому что в при работе с сервером будет приходить id с типом String
     private RecipeType type;
     private String name;
     private String ingredients;

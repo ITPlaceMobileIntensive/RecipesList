@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 public class CardActivity extends AppCompatActivity {
 
+    // на вход  CardActivity через intent должна получать идентификатор блюда и из репозитория получать информацию о блюде
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

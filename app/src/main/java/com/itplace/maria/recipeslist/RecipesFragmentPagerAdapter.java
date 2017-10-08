@@ -25,11 +25,11 @@ public class RecipesFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         RecipeType type = null;
         switch (position) {
-            case 0:
+            case 0: // нужно создать константы по аналогии с PAGE_COUNT
                 type = RecipeType.Breakfast;
                 break;
 
-            case 1:
+            case 1: // нужно создать константы по аналогии с PAGE_COUNT
                 type = RecipeType.Dinner;
                 break;
         }
@@ -43,13 +43,13 @@ public class RecipesFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        String s = "";
+        String s = ""; //  все названия в коде должны быть осмысленны. Название "s" ничего не говорит
         switch (position) {
-            case 0:
+            case 0: // нужно создать константы по аналогии с PAGE_COUNT
                 s = context.getString(R.string.Breakfasts);
                 break;
 
-            case 1:
+            case 1: // нужно создать константы по аналогии с PAGE_COUNT
                 s = context.getString(R.string.Dinners);
                 break;
         }
