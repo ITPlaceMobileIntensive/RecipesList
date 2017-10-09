@@ -13,9 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ViewPager viewPager = findViewById(R.id.viewPager);
-        PagerAdapter pagerAdapter = new RecipesFragmentPagerAdapter(getSupportFragmentManager(), getBaseContext());
+        PagerAdapter pagerAdapter = new RecipesFragmentPagerAdapter(getSupportFragmentManager(), getBaseContext());// Activity  наследуется от context, поэтому не нужно вызывать getBaseContext
+        // getBaseContext не стоит использовать бех явной необхоимости
         viewPager.setAdapter(pagerAdapter);
 
+        // закоментированный код зло - удали
         /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override

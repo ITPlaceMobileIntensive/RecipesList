@@ -5,6 +5,6 @@ package com.itplace.maria.recipeslist;
  */
 
 enum RecipeType {
-    Breakfast,
-    Dinner
+    Breakfast, // по спецификации java названия значение enum нужно писать по правилам констант - примре REQUEST_CODE_HEX
+    Dinner // по спецификации java названия значение enum нужно писать по правилам констант - примре REQUEST_CODE_HEX
 }

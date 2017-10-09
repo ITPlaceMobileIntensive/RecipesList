@@ -1,0 +1,39 @@
+https://android-cources.simbirsoft1.com/api/db/Recipe/
+
+Authorization: Basic NTlkYmE2MzFhNGJlMjA1ODZkMjYwZTdhOmY0NWM2ZTAwMjQ=
+X-Api-Factory-Application-Id: 59dba631a4be20586d260e7a
+Content-Type: application/json
+
+
+{
+    "fields": {
+        "ingredients": {
+            "name": "ingredients",
+            "type": "string"
+        },
+        "picture": {
+            "name": "picture",
+            "type": "string"
+        },
+        "name": {
+            "name": "name",
+            "type": "string",
+            "required": false
+        },
+        "type": {
+            "name": "type",
+            "type": "string",
+            "required": false
+        }
+    },
+    "count": 1,
+    "data": [
+        {
+            "ingredients": "Кофе, печенька",
+            "picture": "https://s3-eu-west-1.amazonaws.com/files.surfory.com/uploads/2016/10/28/5775fe40bd04708f148b4579/58130da6bd0470dd6b8b458b.jpg",
+            "name": "Кофе",
+            "type": "breakfast",
+            "id": "59dba708a4be20586d260e7d"
+        }
+    ]
+}

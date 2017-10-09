@@ -6,4 +6,5 @@
     android:layout_height="match_parent"
     tools:context="com.itplace.maria.recipeslist.CardActivity">
 
+    <!-- Нужно добавить картинку и текст подробного описания. Можно еще что-то, на сколько хватит фантазии -->
 </android.support.constraint.ConstraintLayout>

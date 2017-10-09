@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import static com.itplace.maria.recipeslist.RecipeType.*;
 import static com.itplace.maria.recipeslist.RecipeType.Breakfast;
 
+// BreakfastsFragment - так как это фрагмент используется для  Breakfast и Dinner, то название должно более универсальное
 public class BreakfastsFragment extends Fragment {
 
-    private static final String ARG_TYPE_PAGE = "type_page";
+    private static final String ARG_TYPE_PAGE = "type_page"; // не используемая переменная
 
     private RecyclerView recycler;
     private RecipesAdapter adapter;
@@ -21,7 +22,7 @@ public class BreakfastsFragment extends Fragment {
     public static BreakfastsFragment newInstance(RecipeType type) {
         BreakfastsFragment fragment = new BreakfastsFragment();
         Bundle args = new Bundle();
-        args.putSerializable("ARG_TYPE_PAGE", type);
+        args.putSerializable("ARG_TYPE_PAGE", type); // нужно использовать константу ARG_TYPE_PAGE
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,7 +43,7 @@ public class BreakfastsFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            RecipeType type = (RecipeType) args.getSerializable("ARG_TYPE_PAGE");
+            RecipeType type = (RecipeType) args.getSerializable("ARG_TYPE_PAGE"); // нужно использовать константу ARG_TYPE_PAGE
             switch (type) {
                 case Breakfast:
                     adapter.addItem(new Recipe(Breakfast, "Кофе", "кофе, печенька", R.drawable.pic));

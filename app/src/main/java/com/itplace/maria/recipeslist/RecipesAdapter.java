@@ -30,7 +30,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
 
     private List<Recipe> items;
 
-    private static Context parentContext;
+    private static Context parentContext; // Android studio выделяет static желтым цветом и говорит о возможном memory leak
+    // Не нужно сохранять контекст в статических ссылках. В данном классе вообще не необходимости использовать parentContext
 
     @Override
     public RecipesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -56,10 +57,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             items = new ArrayList<>();
         }
         items.add(entity);
-        notifyDataSetChanged();
+        notifyDataSetChanged(); // после добавления одного элемента не нужно весь список перерисовывать
+        // есть более подходящии методы, например notifyItemInserted();
     }
 
-    public void updateItems(List<Recipe> items) {
+    public void updateItems(List<Recipe> items) { // не используемый метод
         if (items == null) {
             return;
         }
@@ -87,7 +89,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         }
 
         public void bindData(final Recipe entity) {
-            name.setText(entity.getName());
+            name.setText(entity.getName()); // context можно получить из itemView. itemView это поле внутри класса RecyclerView.ViewHolder
             ingredients.setText(parentContext.getResources().getString(R.string.ingredients)
                     + " " + entity.getIngredients());
             pic.setImageResource(entity.getPicture());
@@ -97,7 +99,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         public void onClick(View view) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                switch (itemView.getId()) {
+                switch (itemView.getId()) { // эта проверка ни к чему
                     case R.id.card:
                         itemClick(position);
                         break;
@@ -106,8 +108,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         }
 
         private void itemClick(int position) {
-            Intent intent = CardActivity.createStartIntent(parentContext);
-            parentContext.startActivity(intent);
+            Intent intent = CardActivity.createStartIntent(parentContext); // нужно через свой интерфейс передавать событие клика по элементу в BreakfastsFragment. Передавать можно или сам элемент или id в Recipe
+            parentContext.startActivity(intent); // CardActivity.createStartIntent должно вызываться в BreakfastsFragment.
         }
     }
 }
