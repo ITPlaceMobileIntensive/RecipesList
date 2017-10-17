@@ -27,13 +27,13 @@ public class RecipesListFragment extends Fragment
         implements RecipesAdapter.OnItemClickListener, RecipesView {
 
     private static final String ARG_TYPE_PAGE = "type_page";
-    private static final String ARG_RECIPE_ID = "recipe_id";
+    private static final String ARG_RECIPE_ID = "recipe_id";  // ARG_RECIPE_ID относится к CardActivity. Поэтмоу в CardActivity и нужно объявлять
 
     private RecyclerView recycler;
-    RecipesAdapter adapter;
+    RecipesAdapter adapter; // сделать private
     private final RecipesPresenter presenter = new RecipesPresenter();
 
-    Bundle arguments;
+    Bundle arguments; // не нужное поле, удалить
 
     public static RecipesListFragment newInstance(RecipeType type) {
         RecipesListFragment fragment = new RecipesListFragment();
@@ -54,7 +54,7 @@ public class RecipesListFragment extends Fragment
 
         presenter.attachView(this);
         presenter.loadRecipes();
-        adapter.initList();
+        adapter.initList(); // не нужен этот метод
 
         return v;
     }
@@ -66,11 +66,11 @@ public class RecipesListFragment extends Fragment
     }
 
     @Override
-    public void onItemClick(String RecipeId) {
+    public void onItemClick(String RecipeId) {  //RecipeId - с маленькой буквы. http://www.oracle.com/technetwork/java/codeconventions-150003.pdf
         arguments = new Bundle();
         arguments.putString(ARG_RECIPE_ID, RecipeId);
         Intent intent = CardActivity.createStartIntent(getContext());
-        intent.putExtras(arguments);
+        intent.putExtras(arguments);// интент со всеми данными нужно созавать в функции CardActivity.createStartIntent. Не нужно здесь созвать arguments
         startActivity(intent);
     }
 
@@ -81,7 +81,7 @@ public class RecipesListFragment extends Fragment
         if (args != null) {
             RecipeType type = (RecipeType) args.getSerializable(ARG_TYPE_PAGE);
 
-            /*if (type != null) {
+            /*if (type != null) {  // закомментируемый код удалить
                 for (int i = 0; i < recipes.size(); i++) {
                     Recipe recipe = recipes.get(i);
 
@@ -90,7 +90,7 @@ public class RecipesListFragment extends Fragment
                     }
                 }
             }*/
-            presenter.addByListType(adapter, recipes, type);
+            presenter.addByListType(adapter, recipes, type); //  элементы UI нельзя передавать в презентор.
         }
     }
 
