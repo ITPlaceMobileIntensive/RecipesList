@@ -42,6 +42,7 @@ public class RecipesPresenter {
 
     }
 
+    // фильтрация должна происходить в рамках получения данныъ loadRecipes. В rx есть метод map.
     public void addByListType(RecipesAdapter adapter, List<Recipe> recipes, RecipeType type) {
         if (type != null) {
             for (int i = 0; i < recipes.size(); i++) {

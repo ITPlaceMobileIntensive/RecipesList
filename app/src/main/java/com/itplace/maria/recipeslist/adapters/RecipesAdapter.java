@@ -47,11 +47,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         if (items == null) {
             items = new ArrayList<>();
         }
-        notifyItemInserted(items.size());
+        notifyItemInserted(items.size()); // notifyItemInserted нужно  вызвать после добавления в items.add
         items.add(entity);
     }
 
-    public void initList() {
+    public void initList() { // нужен этот метод. Можно сразу проинициализировать List<Recipe> items = new ArrayList<>();
         if (items == null) {
             items = new ArrayList<>();
         }
